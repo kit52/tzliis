@@ -1,70 +1,38 @@
-# Getting Started with Create React App
+Необходимо реализовать web приложение для поиска отелей, которое имеет два экрана
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Ссылка на макет:
 
-## Available Scripts
+https://www.figma.com/file/Qe8Tr0nX7HB2L4RnfGNQRv/React-Test%2FSimple-Hotel-Check?node-id=0%3A1
 
-In the project directory, you can run:
+Стек интересующих нас технологий React + Redux-saga + React Router, остальные библиотеки по желанию.
 
-### `npm start`
+API, которое можно использовать: https://support.travelpayouts.com/hc/ru/articles/115000343268-API-%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D1%85-%D0%BE%D1%82%D0%B5%D0%BB%D0%B5%D0%B9#price
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Описание интерфейса:
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+страница авторизации. Почта и пароль могут быть любыми, но должны проходить стандартную валидацию.
+страница отображения отелей, где можно ввести название города, дату заселения и количество дней. По результатам этих данных отображаются отели и информация о них, которые можно добавить в избранное. Избранные отели, в соответствующем блоке, можно отсортировать по стоимости и количеству звезд. На странице отображается карусель захардкоженных изображений. Изображение в карусели можно прокручивать.
+Описание логики работы экранов:
 
-### `npm test`
+● Если пароль и логин не прошли валидацию, отображать предупреждение о не правильности введенных данных.
+Правила валидации:
+Логин - любая почта
+Пароль - без кириллицы, минимум 8 символов
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+● По клику на кнопку вход и наличии валидных данных происходит перенаправление на страницу отелей
 
-### `npm run build`
+● На странице отелей по дефолту стоит город - Москва, день заезда - текущий (сегодняшний), количество дней - 1
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+● Дата пикер может быть дефолтным
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+● Поиск отелей осуществляется при нажатии на кнопку найти, но при первой загрузке страницы с дефолтными данными, соответствующие отели должны быть
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+● На странице отелей, добавить в избранное можно по нажатию на сердечко, удалить так же. В блоке избранных отелей также можно выполнить удаление из избранных
 
-### `npm run eject`
+● При выборе новых данных для поиска, список избранных не должен сбрасываться. При перезагрузке страницы - может
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+● При перезагрузке страницы с отелями авторизация не должна сбрасываться
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+● По клику на кнопку “Выход” авторизация сбрасывается и происходит переход на страницу авторизации
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Решение необходимо залить на гитхаб, развернуть на хостинге (heroku, netlify или любом другом по вашему выбору) и прислать ссылки.

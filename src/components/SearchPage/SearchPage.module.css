@@ -1,0 +1,50 @@
+.header {
+  width: 100%;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 32px;
+}
+.wrapper {
+  background: #e5e5e5;
+  height: 100%;
+  padding-bottom: 24px;
+}
+.header__logo {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 28px;
+  color: #424242;
+}
+.header__text {
+  color: #41522e;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 20px;
+  margin-right: 12px;
+}
+.header__logout {
+  display: flex;
+  align-items: center;
+}
+.header__logout:hover {
+  cursor: pointer;
+}
+.content {
+  display: flex;
+  width: 1048px;
+  height: 906px;
+  margin: 0 auto;
+}
+.leftAside {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-right: 24px;
+}

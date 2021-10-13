@@ -1,0 +1,55 @@
+.wrapper {
+  background: #ffffff;
+  box-shadow: 0px 4px 33px rgba(0, 0, 0, 0.04);
+  border-radius: 16px;
+  height: 472px;
+  width: 360px;
+  padding: 32px;
+}
+.title {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 28px;
+  color: #424242;
+  margin-bottom: 32px;
+}
+.price,
+.rating {
+  background: #ffffff;
+  border: 1px solid #e5e5e5;
+  box-sizing: border-box;
+  border-radius: 4px;
+  padding: 4px 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.rating {
+  margin-right: 8px;
+}
+
+.up {
+  width: 8.5px;
+  height: 5.3px;
+  background-color: #d2d1d1;
+  margin-bottom: 1px;
+  mask-image: url("../../assets/images/up.svg");
+}
+.down {
+  width: 8.5px;
+  height: 5.3px;
+  background-color: #d2d1d1;
+  mask-image: url("../../assets/images/down.svg");
+}
+.icon {
+  display: flex;
+  flex-direction: column;
+  margin-left: 5px;
+  justify-content: space-evenly;
+}
+.sortContainer {
+  display: flex;
+}
