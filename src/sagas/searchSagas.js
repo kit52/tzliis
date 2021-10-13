@@ -3,7 +3,6 @@ import { GET_HOTELS, SET_HOTELS, SET_SEARCH_ERROR } from "../redux/reducer/index
 const fetchtHotels = (city, dateIn, dateOut) => fetch(`https://engine.hotellook.com/api/v2/cache.json?location=${city}&currency=rub&checkIn=${dateIn}&checkOut=${dateOut}&limit=10`)
 
 export function* getHotelsWorker() {
-    debugger
     const city = yield select(s => s.searchPage.search.city);
     const dateIn = yield select(s => s.searchPage.search.date);
     const dateOut = yield select(s => s.searchPage.search.dateOut);

@@ -24,13 +24,6 @@ const SelectedContainer = () => {
     )
 };
 const Selected = (props) => {
-    const [date, setDate] = useState("");
-    useEffect(() => {
-        if (props.date != null) {
-            const date = dateTransform(props.date)
-            setDate(date)
-        }
-    })
     const dispatch = useDispatch();
     const handleClickRating = () => {
         if (props.selectedHotels.length > 0) {
@@ -80,12 +73,13 @@ const Selected = (props) => {
             <div className="selected">
                 {props.selectedHotels.map(item => {
                     return <Hotel
+                        item={item}
+                        selectedHotels={props.selectedHotels}
                         hotelId={item.hotelId}
-                        selectedId={props.selectedId}
-                        key={item.hotelId}
+                        key={`${item.hotelId} + ${item.date} + ${item.days}`}
                         hotelName={item.hotelName}
-                        date={date}
-                        days={props.days}
+                        date={item.dateIn}
+                        days={item.days}
                         rating={item.stars}
                         price={item.priceAvg}
                     />

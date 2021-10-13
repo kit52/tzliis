@@ -4,9 +4,7 @@ const initialState = {
     auth: false
 }
 export default function authReducer(state = initialState, action) {
-    debugger
     switch (action.type) {
-
         case SET_LOGOUT:
             return { ...state, auth: false }
         case SET_LOGIN:

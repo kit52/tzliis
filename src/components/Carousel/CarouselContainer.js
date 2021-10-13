@@ -5,7 +5,6 @@ import one from "../../assets/images/1.png";
 import free from "../../assets/images/3.png";
 import four from "../../assets/images/4.png";
 
-
 const CarouselContainer = () => {
     return (
         <div className={s.wrapper}>

@@ -10,20 +10,18 @@ import { Redirect } from 'react-router';
 import { search } from '../../redux/reducer';
 
 const SearchPage = () => {
-    const store = useSelector(store => store)
     const auth = useSelector(store => store.auth.auth)
     const date = useSelector(store => store.searchPage.search.date);
     const city = useSelector(store => store.searchPage.search.city);
     const days = useSelector(store => store.searchPage.search.days);
     const searchError = useSelector(store => store.searchPage.searchError);
     const dateOut = useSelector(store => store.searchPage.search.dateOut)
+    const selectedCounter = useSelector(store => store.searchPage.selectedHotels.length);
     const dispatch = useDispatch();
     useEffect(() => {
         search(dispatch, date, days)
     }, [])
-    console.log(store);
     if (!auth) {
-        console.log(auth);
         return <Redirect to={"/LoginPage"} />
     }
 
@@ -46,7 +44,7 @@ const SearchPage = () => {
                     />
                     <SelectedContainer />
                 </div>
-                <MainContainer date={date} />
+                <MainContainer date={date} selectedCounter={selectedCounter} />
 
             </div>
 

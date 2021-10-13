@@ -9,8 +9,8 @@ const MainContainer = (props) => {
     const [date, setDate] = useState("");
     const city = useSelector(store => store.searchPage.search.city);
     const searchResult = useSelector(store => store.searchPage.searchResult);
+    const selectedHotels = useSelector(store => store.searchPage.selectedHotels);
     const days = useSelector(store => store.searchPage.search.days);
-    const selectedCounter = useSelector(store => store.searchPage.selectedHotels.length);
     const selectedId = useSelector(store => store.searchPage.selectedId);
 
     useEffect(() => {
@@ -23,17 +23,17 @@ const MainContainer = (props) => {
         <Main
             date={date}
             days={days}
-            selectedCounter={selectedCounter}
+            selectedCounter={props.selectedCounter}
             city={city}
             searchResult={searchResult}
             selectedId={selectedId}
+            selectedHotels={selectedHotels}
         />
     )
 
 };
 
 const Main = (props) => {
-
     return (
         <div className={s.wrapper}>
             <div className={s.main__header}>
@@ -55,14 +55,15 @@ const Main = (props) => {
             <div className={s.main__searchResult}>
                 {props.searchResult.map(item => {
                     return <Hotel
+                        item={item}
                         hotelId={item.hotelId}
-                        selectedId={props.selectedId}
-                        key={item.hotelId}
+                        key={`${item.hotelId}${item.priceAvg}${props.days}`}
                         hotelName={item.hotelName}
                         date={props.date}
                         days={props.days}
                         rating={item.stars}
                         price={item.priceAvg}
+                        selectedHotels={props.selectedHotels}
                     />
                 })}
             </div>

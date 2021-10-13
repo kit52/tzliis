@@ -44,7 +44,6 @@ export const search = (dispatch, date, days) => {
     dispatch({ type: "GET_HOTELS" })
 }
 export const setDateOutAC = (date, days) => {
-    debugger
     const dateOut = getDateOut(date, days);
     return { type: SET_DATE_OUT, dateOut }
 }
@@ -57,16 +56,15 @@ export const setCityAC = (city) => {
 export const setDaysAC = (days) => {
     return { type: SET_DAYS, days }
 }
-export const addSelectedIdAC = (id) => {
-    return { type: ADD_SELECTED_ID, id }
+export const addSelectedIdAC = (item) => {
+    return { type: ADD_SELECTED_ID, item }
 }
-export const removeSelectedIdAC = (id) => {
-    return { type: REMOVE_SELECTED_ID, id }
+export const removeSelectedIdAC = (id, dateIn, days) => {
+    return { type: REMOVE_SELECTED_ID, id, dateIn, days }
 }
 
 
 export default function reducer(state = initialState, action) {
-    debugger
     switch (action.type) {
         case SET_DATE_IN:
             return { ...state, search: { ...state.search, date: action.date } }
@@ -80,14 +78,17 @@ export default function reducer(state = initialState, action) {
             return { ...state, searchResult: [...action.payload] }
         case ADD_SELECTED_ID:
             return {
-                ...state, selectedId: [...state.selectedId, action.id], selectedHotels: [
-                    ...state.selectedHotels, ...state.searchResult.filter(i => i.hotelId == action.id)
-                ]
+                ...state,
+                selectedHotels: [...state.selectedHotels, action.item]
             }
         case REMOVE_SELECTED_ID:
             return {
-                ...state, selectedId: [...state.selectedId.filter(i => i != action.id)],
-                selectedHotels: [...state.selectedHotels.filter(i => i.hotelId != action.id)]
+                ...state,
+                selectedHotels: [...state.selectedHotels.filter((i) => {
+                    if (i.hotelId == action.id && i.dateIn == action.dateIn && i.days == action.days) {
+                        return false
+                    } return true
+                })]
             }
 
         case SORTING_TO_STARS:

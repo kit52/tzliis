@@ -5,7 +5,7 @@ import house from "../../assets/images/house.svg";
 import Heart from "../Heart/Heart";
 const Hotel = (props) => {
     return (
-        <div className="hotel__wrapper" key={props.key}>
+        <div className="hotel__wrapper" >
             <div className="hotel__icon">
                 <img src={house} alt="house" />
             </div>
@@ -13,12 +13,11 @@ const Hotel = (props) => {
                 <div className={s.container_top}>
                     <p className={s.hotel__name}> {props.hotelName}</p>
                     <Heart
-                        selected={props.selectedId.includes(props.hotelId)}
+                        item={{ ...props.item, dateIn: props.date, days: props.days }}
                         hotelId={props.hotelId}
+                        selectedHotels={props.selectedHotels}
                     />
                 </div>
-
-
                 <div className={s.container_bottom}>
                     <div className={s.date__container}>
                         <span className={s.date}>{props.date}</span>

@@ -27,7 +27,6 @@ const SearchPanel = (props) => {
                         setDate(e.target.value)
                     }}
                     onBlur={() => dispatch(setDateAC(date))}
-
                 />
             </div>
             <div className={s.input__content}>
@@ -37,7 +36,6 @@ const SearchPanel = (props) => {
                     onChange={(e) => setDays(e.target.value)}
                     onBlur={() => dispatch(setDaysAC(days))}
                 />
-
             </div>
 
             <Button text="Найти" func={() => {
